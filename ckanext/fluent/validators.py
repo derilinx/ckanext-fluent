@@ -346,3 +346,18 @@ def _validate_single_tag(name, validators):
         except Invalid as e:
             errors.append(e.error)
     return name, errors
+
+
+def fluent_required(value):
+    '''Checks that the value inputed is a json object with at least "en" among its keys'''
+
+    value_json = {}
+    try:
+        value_json = json.loads(value);
+    except:
+        raise toolkit.Invalid("This multilingual field is mandatory. Please specify a value, at least in English.")
+
+    if "en" not in value_json or not value_json["en"]:
+        raise toolkit.Invalid("This multilingual field is mandatory. Please specify a value, at least in English.")
+
+    return value

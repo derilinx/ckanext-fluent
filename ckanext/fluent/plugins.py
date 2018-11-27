@@ -20,6 +20,7 @@ class FluentPlugin(p.SingletonPlugin):
         return {
             'fluent_form_languages': helpers.fluent_form_languages,
             'fluent_form_label': helpers.fluent_form_label,
+            'fluent_required': helpers.fluent_required,
             }
 
     def get_validators(self):
@@ -32,4 +33,5 @@ class FluentPlugin(p.SingletonPlugin):
                 validators.fluent_tags_output,
             'fluent_core_translated_output':
                 validators.fluent_core_translated_output,
+            'fluent_required': validators.fluent_required,
             }

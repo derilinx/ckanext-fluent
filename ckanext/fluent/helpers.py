@@ -1,5 +1,5 @@
 from ckan.lib.i18n import get_available_locales
-
+from ckan.common import request
 from ckanext.scheming.helpers import scheming_language_text
 
 
@@ -61,3 +61,33 @@ def fluent_form_label(field, lang):
         return scheming_language_text(form_label[lang])
 
     return lang.upper() + ' ' + scheming_language_text(field['label'])
+
+
+def fluent_required(field):
+    """
+    Is the field required at the fluent level.
+
+    Note that this is important for _translated_lang fields, where if
+    the field is required by the core schema field, then the
+    _translated field is required, which is never the case when
+    validation runs. This requires the fluent_required validator
+    """
+
+    return field.get('fluent_required', False)
+
+def fluent_current_language():
+    return request.environ['CKAN_LANG']
+
+def fluent_convert_to_multilingual(data):
+    '''Converts strings to multilingual with the current language set'''
+
+    if data:
+        log.debug('convert_to_multilingual: %s' % data)
+
+    if isinstance(data, basestring):
+        multilingual_data = {}
+        multilingual_data[fluent_current_language()] = data;
+    else:
+        multilingual_data = data
+
+    return multilingual_data
