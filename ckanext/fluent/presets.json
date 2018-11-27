@@ -57,9 +57,6 @@
         "output_validators": "fluent_text_output"
       }
     },
-
-    // Title with multiple entries @ same time,
-    // with the slug preview target added to the first language
     {
       "preset_name": "fluent_title_translated",
       "values": {
@@ -74,7 +71,6 @@
       }
     },
 
-    // Multiple notes, with fallback, in markdown
     {
       "preset_name": "fluent_notes_translated_markdown",
       "values": {
@@ -84,8 +80,7 @@
         "validators": "fluent_text",
         "output_validators": "fluent_core_translated_output"
       }
-    }
-    // Multiple markdown items
+    },
     {
       "preset_name": "fluent_markdown_translated",
       "values": {
@@ -96,7 +91,6 @@
         "output_validators": "fluent_text_output"
       }
     },
-    // Multiple text items
     {
       "preset_name": "fluent_text_translated",
       "values": {
