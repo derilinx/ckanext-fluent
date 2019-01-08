@@ -2,6 +2,8 @@ from ckan.lib.i18n import get_available_locales
 from ckan.common import request
 from ckanext.scheming.helpers import scheming_language_text
 
+import logging
+log = logging.getLogger(__name__)
 
 def fluent_form_languages(field=None, entity_type=None, object_type=None,
         schema=None):
