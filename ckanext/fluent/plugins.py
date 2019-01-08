@@ -21,6 +21,8 @@ class FluentPlugin(p.SingletonPlugin):
             'fluent_form_languages': helpers.fluent_form_languages,
             'fluent_form_label': helpers.fluent_form_label,
             'fluent_required': helpers.fluent_required,
+            'fluent_current_language': helpers.fluent_current_language,
+            'fluent_convert_to_multilingual': helpers.fluent_convert_to_multilingual,
             }
 
     def get_validators(self):
